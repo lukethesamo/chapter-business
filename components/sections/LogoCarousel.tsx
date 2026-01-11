@@ -40,17 +40,14 @@ function LogoItem({ name, index }: { name: string; index: number }) {
         transition={{ duration: 0.6, ease: "easeInOut" }}
       />
 
-      <motion.span
-        className="relative text-muted font-medium whitespace-nowrap transition-colors duration-300"
-        animate={isHovered ? {
-          background: 'linear-gradient(90deg, #02b3ff, #8B5CF6)',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        } : {}}
+      <span
+        className={`relative font-medium whitespace-nowrap transition-all duration-300 ${isHovered
+            ? 'bg-gradient-to-r from-primary to-violet bg-clip-text text-transparent'
+            : 'text-muted'
+          }`}
       >
         {name}
-      </motion.span>
+      </span>
     </motion.div>
   );
 }
